@@ -6,11 +6,9 @@
   --text: #f5f2eb;
   --muted: #c9c2b5;
   --gold: #d4af37;
-  --gold-soft: #b9922f;
   --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
   --radius-lg: 28px;
   --radius-md: 18px;
-  --radius-sm: 12px;
   --chat-width: 380px;
 }
 
@@ -23,7 +21,8 @@
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
+  background: #050505 !important;
 }
 
 body {
@@ -31,52 +30,57 @@ body {
   color: var(--text);
   background:
     radial-gradient(circle at top center, rgba(212, 175, 55, 0.12), transparent 30%),
-    linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+    linear-gradient(180deg, #0a0a0a 0%, #000000 100%) !important;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* General images */
+/* Images */
 img {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-/* Main page content wrapper */
+/* Left content area */
 .page-shell {
   min-height: 100vh;
   margin-right: var(--chat-width);
-  padding: 24px 40px 40px;
+  padding: 12px 36px 28px;
+  background: transparent;
 }
 
-/* Header / logo */
+/* Header - reduced gap */
 .site-header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 6px;
-  padding-bottom: 16px;
+  padding: 0 0 8px;
+  min-height: 72px;
 }
 
+/* Logo */
 .brand-logo {
-  width: min(680px, 92%);
-  height: auto;
+  display: block;
+  width: min(680px, 88vw);
+  max-height: 72px;
   object-fit: contain;
 }
 
-/* Hero layout */
+/* Hero section */
 .hero-layout {
-  min-height: calc(100vh - 110px);
+  min-height: calc(100vh - 92px);
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  align-items: center;
-  gap: 48px;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: end;
+  gap: 40px;
 }
 
-/* Hero text */
+/* Copy */
 .hero-copy {
   max-width: 640px;
+  align-self: end;
+  padding-bottom: 10px;
 }
 
 .eyebrow {
@@ -100,7 +104,7 @@ img {
 
 .lead {
   color: var(--muted);
-  font-size: 1.08rem;
+  font-size: 1.05rem;
   max-width: 680px;
   margin-bottom: 28px;
 }
@@ -114,17 +118,17 @@ img {
   color: #e8e0d3;
 }
 
-/* Hero visual */
+/* Avatar area */
 .hero-visual {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
 }
 
 .avatar-frame {
-  width: min(100%, 420px);
-  border-radius: 30px;
-  padding: 20px;
+  width: min(100%, 360px);
+  border-radius: 28px;
+  padding: 18px;
   background:
     linear-gradient(180deg, rgba(212, 175, 55, 0.08), rgba(255,255,255,0.03));
   border: 1px solid rgba(212, 175, 55, 0.24);
@@ -133,21 +137,19 @@ img {
 
 .avatar-image {
   width: 100%;
-  max-width: 360px;
-  margin: 0 auto;
-  border-radius: 24px;
+  border-radius: 22px;
 }
 
-/* Fixed right-side chat panel */
+/* Right-side chat */
 #chat-container {
   position: fixed;
   top: 0;
   right: 0;
   width: var(--chat-width);
   height: 100vh;
-  background: linear-gradient(180deg, #111, #0a0a0a);
-  border-left: 1px solid rgba(212, 175, 55, 0.2);
-  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.6);
+  background: #ffffff;
+  border-left: 1px solid rgba(212, 175, 55, 0.18);
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.28);
   z-index: 999;
 }
 
@@ -156,25 +158,37 @@ img {
   width: 100%;
   height: 100%;
   border: none;
-  background: transparent;
+  background: #ffffff;
 }
 
 /* Responsive */
 @media (max-width: 1100px) {
   .page-shell {
     margin-right: 0;
-    padding: 20px 20px 32px;
+    padding: 14px 18px 24px;
+  }
+
+  .site-header {
+    min-height: 58px;
+    padding-bottom: 6px;
+  }
+
+  .brand-logo {
+    max-height: 58px;
+    width: 92%;
   }
 
   .hero-layout {
+    min-height: auto;
     grid-template-columns: 1fr;
     gap: 28px;
+    align-items: center;
     text-align: center;
-    min-height: auto;
   }
 
   .hero-copy {
     margin: 0 auto;
+    padding-bottom: 0;
   }
 
   .lead,
@@ -183,39 +197,29 @@ img {
     margin-right: auto;
   }
 
+  .hero-visual {
+    justify-content: center;
+  }
+
   #chat-container {
     position: relative;
     width: 100%;
     height: 420px;
     border-left: none;
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
     box-shadow: none;
   }
 }
 
 @media (max-width: 640px) {
-  .page-shell {
-    padding: 16px 16px 28px;
-  }
-
-  .brand-logo {
-    width: 96%;
-  }
-
   .hero-copy h1 {
-    font-size: clamp(2.8rem, 12vw, 4.6rem);
+    font-size: clamp(2.8rem, 12vw, 4.8rem);
   }
 
   .intro-card {
     padding: 18px;
   }
 
-  .avatar-frame {
-    padding: 16px;
-  }
-
   #chat-container {
-    height: 380px;
+    height: 360px;
   }
 }
-``
