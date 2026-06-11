@@ -3,8 +3,6 @@
   --muted: #c9c2b5;
   --gold: #d4af37;
   --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-  --radius-lg: 28px;
-  --radius-md: 16px;
 }
 
 /* Reset */
@@ -20,14 +18,13 @@ body {
   background:
     radial-gradient(circle at top center, rgba(212, 175, 55, 0.12), transparent 30%),
     linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
-  line-height: 1.6;
 }
 
-/* Header */
+/* HEADER */
 .site-header {
   display: flex;
   justify-content: center;
-  padding: 20px 0 10px;
+  padding: 10px 0 0;
 }
 
 .brand-logo {
@@ -35,27 +32,28 @@ body {
   max-height: 70px;
 }
 
-/* Layout */
+/* LAYOUT */
 .page-shell {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 28px;
 }
 
-/* Hero */
+/* HERO */
 .hero-layout {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  align-items: flex-start;
+  align-items: start;
   gap: 60px;
-  margin-top: 40px;
+
+  margin-top: 10px; /* ✅ moved UP significantly */
 }
 
-/* Copy */
+/* TEXT */
 .hero-copy h1 {
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(4rem, 6vw, 6rem);
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .eyebrow {
@@ -68,28 +66,27 @@ body {
 
 .lead {
   color: var(--muted);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   max-width: 600px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
-.lead.secondary {
-  margin-top: 16px;
+.secondary {
   opacity: 0.85;
 }
 
-/* Avatar */
+/* AVATAR */
 .hero-visual {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 30px;
+  padding-top: 10px; /* ✅ tighter */
 }
 
 .avatar-frame {
-  width: 320px;
-  padding: 14px;
-  border-radius: 24px;
+  width: 300px;
+  padding: 12px;
+  border-radius: 22px;
   background: linear-gradient(180deg, rgba(212, 175, 55, 0.1), rgba(255,255,255,0.03));
   border: 1px solid rgba(212, 175, 55, 0.25);
   box-shadow: var(--shadow);
@@ -97,67 +94,50 @@ body {
 
 .avatar-image {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 18px;
 }
 
-/* Chat section */
+/* ✅ FULL WIDTH CHAT SECTION */
 .chat-section {
-  display: flex;
-  justify-content: center;
-  margin-top: 60px;
+  margin-top: 40px;
   padding-bottom: 80px;
 }
 
-/* Chat card */
-.chat-card {
+/* ✅ FULL WIDTH CHAT CONTAINER */
+.chat-full {
   width: 100%;
-  max-width: 900px;  /* ✅ MUCH wider */
+  max-width: 1200px;
   margin: 0 auto;
 
-  background: #f3f3f3;
-  border-radius: var(--radius-md);
+  border-radius: 16px;
   overflow: hidden;
   box-shadow: var(--shadow);
 }
 
-/* Chat header strip (matches mockup) */
-.chat-card::before {
-  content: "Carrick";
-  display: block;
-  background: #1f5f78;
-  color: white;
-  padding: 14px 20px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.5rem;
-}
-
-/* iFrame */
-.chat-card iframe {
+/* ✅ CRITICAL FIX: proper scaling without breaking layout */
+.chat-full iframe {
   width: 100%;
-  height: 600px;
+  height: 650px;
   border: none;
 
-  /* ✅ Clean scaling (no overflow issues) */
+  /* ✅ this enlarges text WITHOUT breaking position */
   transform: scale(1.15);
   transform-origin: top center;
 }
-``
 
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
   .hero-layout {
     grid-template-columns: 1fr;
-    text-align: left;
   }
 
   .hero-visual {
     order: -1;
-    padding-top: 0;
   }
 
-  .chat-card iframe {
+  .chat-full iframe {
     transform: scale(1.1);
-    width: 135%;
+    height: 550px;
   }
 }
 
@@ -166,8 +146,9 @@ body {
     font-size: clamp(3rem, 10vw, 4.5rem);
   }
 
-  .chat-card iframe {
+  .chat-full iframe {
     transform: scale(1.05);
-    width: 150%;
+    height: 500px;
   }
 }
+``
