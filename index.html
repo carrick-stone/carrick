@@ -1,52 +1,52 @@
-/* ✅ RESET DEFAULT SPACING (THIS FIXES YOUR GAPS) */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background: #000;
-  color: #fff;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-/* ✅ FULLSCREEN HERO */
-.hero-layout {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100vh;
-  padding: 60px;
-  padding-right: 420px; /* prevents overlap with chat */
-}
+  <title>Carrick | Carrick+Stone</title>
 
-/* ✅ TEXT */
-.hero-copy {
-  max-width: 600px;
-}
+  <!-- ✅ Link your CSS file -->
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-.hero-copy h1 {
-  font-size: 72px;
-  margin: 0;
-}
+<body>
 
-/* ✅ IMAGE */
-.avatar-image {
-  width: 320px;
-}
+  <!-- ✅ HERO SECTION -->
+  <main class="hero-layout">
 
-/* ✅ CHAT PANEL (RIGHT SIDE FULL HEIGHT) */
-#chat-container {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 380px;
-  height: 100vh;
-  background: #111;
-  z-index: 999;
-}
+    <section class="hero-copy">
+      <p class="eyebrow">Carrick+Stone Assistant</p>
+      <h1>Carrick</h1>
 
-/* ✅ REMOVE IFRAME GAP */
-#chat-container iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
+      <p class="lead">
+        A refined digital host for Carrick+Stone — guiding guests through wines,
+        whiskies, pairings and curated recommendations.
+      </p>
+
+      <div class="intro-card">
+        <p>
+          Ask Carrick about a bottle, a dram, a pairing — or plan your visit to Carrick+Stone.
+        </p>
+      </div>
+    </section>
+
+    <aside class="hero-visual">
+      <img
+        src="Carrick-Avatar.png"
+        alt="Carrick avatar"
+        class="avatar-image"
+      />
+    </aside>
+
+  </main>
+
+  <!-- ✅ RIGHT-SIDE FULL HEIGHT CARRICK -->
+  <div id="chat-container">
+    <iframe
+      src="https://copilotstudio.microsoft.com/environments/Default-9be50a5f-dad9-475a-89ef-8ae005ee3a8b/bots/cr3ff_Carrick/webchat?__version__=2">
+    </iframe>
+  </div>
+
+</body>
+</html>
