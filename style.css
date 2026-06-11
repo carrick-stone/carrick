@@ -1,14 +1,10 @@
 :root {
-  --bg: #050505;
-  --bg-soft: #101010;
-  --panel: rgba(255, 255, 255, 0.04);
-  --panel-border: rgba(212, 175, 55, 0.22);
   --text: #f5f2eb;
   --muted: #c9c2b5;
   --gold: #d4af37;
-  --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
   --radius-lg: 28px;
-  --radius-md: 18px;
+  --radius-md: 16px;
 }
 
 /* Reset */
@@ -18,203 +14,155 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  min-height: 100%;
-  background: #050505 !important;
-}
-
 body {
   font-family: "Inter", sans-serif;
   color: var(--text);
   background:
     radial-gradient(circle at top center, rgba(212, 175, 55, 0.12), transparent 30%),
-    linear-gradient(180deg, #0a0a0a 0%, #000000 100%) !important;
+    linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
   line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* Images */
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-/* ✅ Layout now full width (chat no longer fixed right) */
-.page-shell {
-  min-height: 100vh;
-  padding: 12px 36px 28px;
-  background: transparent;
 }
 
 /* Header */
 .site-header {
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 0 0 8px;
-  min-height: 72px;
+  padding: 20px 0 10px;
 }
 
-/* Logo */
 .brand-logo {
-  display: block;
-  width: min(680px, 88vw);
-  max-height: 72px;
-  object-fit: contain;
+  width: min(600px, 90vw);
+  max-height: 70px;
 }
 
-/* Hero section */
+/* Layout */
+.page-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Hero */
 .hero-layout {
-  min-height: calc(100vh - 92px);
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center; /* ✅ slightly improved vertical balance */
-  gap: 40px;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: flex-start;
+  gap: 60px;
+  margin-top: 40px;
 }
 
 /* Copy */
-.hero-copy {
-  max-width: 640px;
-  margin: 0 auto; /* ✅ keeps content centred when wide */
+.hero-copy h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(4rem, 6vw, 6rem);
+  margin-bottom: 20px;
 }
 
 .eyebrow {
   color: var(--gold);
-  font-size: 0.82rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  margin-bottom: 16px;
-  font-weight: 600;
-}
-
-.hero-copy h1 {
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  line-height: 0.95;
-  font-size: clamp(3.4rem, 7vw, 6.2rem);
-  margin-bottom: 20px;
-  color: #ffffff;
+  margin-bottom: 14px;
 }
 
 .lead {
   color: var(--muted);
-  font-size: 1.05rem;
-  max-width: 680px;
-  margin-bottom: 18px; /* ✅ slight tightening */
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin-bottom: 16px;
 }
 
-/* ✅ Chat wrapper (NEW) */
-.chat-wrapper {
-  margin-top: 30px;
-  width: 100%;
-  height: 70vh;
-  max-width: 900px;
+.lead.secondary {
+  margin-top: 16px;
+  opacity: 0.85;
 }
 
-/* ✅ Chat frame (NEW) */
-.chat-frame {
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-
-  /* ✅ Increase readability */
-  transform: scale(1.25);
-  transform-origin: top left;
-  width: 80%;
-
-  box-shadow: var(--shadow);
-  background: #ffffff;
-}
-
-/* Avatar area */
+/* Avatar */
 .hero-visual {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 30px;
 }
 
 .avatar-frame {
-  width: min(100%, 360px);
-  border-radius: 28px;
-  padding: 18px;
-  background:
-    linear-gradient(180deg, rgba(212, 175, 55, 0.08), rgba(255,255,255,0.03));
-  border: 1px solid rgba(212, 175, 55, 0.24);
+  width: 320px;
+  padding: 14px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(212, 175, 55, 0.1), rgba(255,255,255,0.03));
+  border: 1px solid rgba(212, 175, 55, 0.25);
   box-shadow: var(--shadow);
 }
 
 .avatar-image {
   width: 100%;
-  border-radius: 22px;
+  border-radius: 20px;
 }
 
-/* ✅ Responsive */
-@media (max-width: 1100px) {
-  .page-shell {
-    padding: 14px 18px 24px;
-  }
+/* Chat section */
+.chat-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  padding-bottom: 80px;
+}
 
-  .site-header {
-    min-height: 58px;
-    padding-bottom: 6px;
-  }
+/* Chat card */
+.chat-card {
+  width: 100%;
+  max-width: 720px;
+  background: #f3f3f3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
 
-  .brand-logo {
-    max-height: 58px;
-    width: 92%;
-  }
+/* Chat header strip (matches mockup) */
+.chat-card::before {
+  content: "Carrick";
+  display: block;
+  background: #1f5f78;
+  color: white;
+  padding: 14px 20px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+}
 
+/* iFrame */
+.chat-card iframe {
+  width: 125%;
+  height: 520px;
+  border: none;
+  transform: scale(1.2);
+  transform-origin: top left;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
   .hero-layout {
-    min-height: auto;
     grid-template-columns: 1fr;
-    gap: 28px;
-    align-items: center;
-    text-align: center;
-  }
-
-  .hero-copy {
-    margin: 0 auto;
-  }
-
-  .lead {
-    margin-left: auto;
-    margin-right: auto;
+    text-align: left;
   }
 
   .hero-visual {
-    justify-content: center;
+    order: -1;
+    padding-top: 0;
   }
 
-  /* ✅ Chat adapts better to tablet */
-  .chat-wrapper {
-    height: 75vh;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .chat-frame {
-    transform: scale(1.15);
-    width: 87%;
+  .chat-card iframe {
+    transform: scale(1.1);
+    width: 135%;
   }
 }
 
 @media (max-width: 640px) {
   .hero-copy h1 {
-    font-size: clamp(2.8rem, 12vw, 4.8rem);
+    font-size: clamp(3rem, 10vw, 4.5rem);
   }
 
-  /* ✅ Critical mobile fix */
-  .chat-wrapper {
-    height: 78vh;
-  }
-
-  .chat-frame {
-    transform: scale(1.1);
-    width: 92%;
+  .chat-card iframe {
+    transform: scale(1.05);
+    width: 150%;
   }
 }
