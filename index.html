@@ -26,6 +26,25 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
+<!-- ✅ Floating Chat Button -->
+<div id="chat-button">💬</div>
+
+<!-- ✅ Chat Panel -->
+<div id="chat-panel">
+  <iframe
+    src="https://copilotstudio.microsoft.com/environments/Default-9be50a5f-dad9-475a-89ef-8ae005ee3a8b/bots/cr3ff_Carrick/webchat?__version__=2"
+  ></iframe>
+</div>
+
+<script>
+  const button = document.getElementById("chat-button");
+  const panel = document.getElementById("chat-panel");
+
+  button.onclick = () => {
+    panel.classList.toggle("open");
+  };
+</script>
+  
 <body>
   <div class="site-shell">
 
