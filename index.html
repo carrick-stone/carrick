@@ -1,251 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrick Chat Bot</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrick | Carrick+Stone</title>
+  <meta name="description" content="Carrick, the Carrick+Stone Copilot assistant." />
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png" />
+  <link rel="shortcut icon" href="favicon-512x512.png" />
+  <link rel="apple-touch-icon" href="favicon-512x512.png" />
 
-        .container {
-            width: 100%;
-            max-width: 900px;
-        }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
 
-        .header {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .logo-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .company-logo {
-            max-width: 150px;
-            height: auto;
-        }
-
-        .company-logo img {
-            max-width: 100%;
-            height: auto;
-            object-fit: contain;
-        }
-
-        .agent-image {
-            max-width: 150px;
-            height: auto;
-        }
-
-        .agent-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            object-fit: cover;
-        }
-
-        .header h1 {
-            color: #333;
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            color: #666;
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-
-        .subtitle {
-            color: #999;
-            font-size: 14px;
-        }
-
-        .content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            align-items: start;
-        }
-
-        .info-panel {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .info-panel h2 {
-            color: #333;
-            font-size: 20px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .info-panel ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .info-panel li {
-            color: #555;
-            padding: 10px 0;
-            border-bottom: 1px solid #f0f0f0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .info-panel li:last-child {
-            border-bottom: none;
-        }
-
-        .info-panel li::before {
-            content: "✓";
-            color: #667eea;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .chatbot-container {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            min-height: 600px;
-        }
-
-        .chatbot-container iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
-            border-radius: 8px;
-        }
-
-        .note {
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
-            padding: 15px;
-            border-radius: 4px;
-            margin-top: 15px;
-            font-size: 13px;
-            color: #555;
-        }
-
-        @media (max-width: 768px) {
-            .content {
-                grid-template-columns: 1fr;
-            }
-
-            .logo-section {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .header {
-                padding: 20px;
-            }
-
-            .info-panel {
-                padding: 20px;
-            }
-
-            .chatbot-container iframe {
-                height: 500px;
-            }
-        }
-    </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="logo-section">
-                <div class="company-logo">
-                    <img id="companyLogo" src="https://via.placeholder.com/150?text=Company+Logo" alt="Company Logo">
-                </div>
-                <div class="agent-image">
-                    <img id="agentImage" src="https://via.placeholder.com/150?text=Carrick+Agent" alt="Carrick Agent">
-                </div>
-            </div>
-            <h1>Meet Carrick</h1>
-            <p>Your intelligent customer support assistant</p>
-            <p class="subtitle">Available 24/7 to help answer your questions</p>
+  <div class="site-shell">
+
+    <header class="site-header">
+      <div class="top-brand">
+        <img
+          src="Carrick+Stone Logo MAIN.png"
+          alt="Carrick and Stone logo"
+          class="brand-logo"
+        />
+      </div>
+    </header>
+
+    <main class="hero-layout">
+      <section class="hero-copy">
+        <p class="eyebrow">Carrick+Stone Assistant</p>
+        <h1>Carrick</h1>
+        <p class="lead">
+          A refined digital host for Carrick+Stone — ready to guide guests through
+          wines, whiskies, pairings, venue information and curated recommendations.
+        </p>
+
+        <div class="intro-card">
+          <p>
+            Ask Carrick about a bottle, a dram, a food pairing, or the Carrick+Stone experience.
+          </p>
         </div>
+      </section>
 
-        <div class="content">
-            <div class="info-panel">
-                <h2>💬 About Carrick</h2>
-                <ul>
-                    <li>Instant support whenever you need it</li>
-                    <li>Quick answers to common questions</li>
-                    <li>Available around the clock</li>
-                    <li>Powered by AI technology</li>
-                    <li>Secure and confidential conversations</li>
-                </ul>
-                <div class="note">
-                    👋 Start a conversation with Carrick using the chat window on the right to get instant assistance!
-                </div>
-            </div>
-
-            <div class="chatbot-container">
-                <!-- Replace the src below with your actual Copilot Studio iframe URL -->
-                <iframe 
-                    id="chatbotIframe"
-                    src="PASTE_YOUR_IFRAME_URL_HERE"
-                    title="Carrick Chat Bot"
-                >
-                </iframe>
-            </div>
+      <aside class="hero-visual">
+        <div class="avatar-frame">
+          <img
+            src="Carrick Avatar.png"
+            alt="Carrick avatar"
+            class="avatar-image"
+          />
         </div>
-    </div>
+      </aside>
+    </main>
 
-    <script>
-        // Configuration
-        const CONFIG = {
-            companyLogoUrl: 'https://via.placeholder.com/150?text=Company+Logo', // Replace with your company logo URL
-            agentImageUrl: 'https://via.placeholder.com/150?text=Carrick+Agent',  // Replace with Carrick agent image URL
-            iframeUrl: 'PASTE_YOUR_IFRAME_URL_HERE'                              // Replace with your Copilot Studio iframe URL
-        };
+    <section class="agent-section">
+      <div class="section-heading">
+        <p class="eyebrow">Interactive Experience</p>
+        <h2>Speak with Carrick</h2>
+      </div>
 
-        // Set images
-        document.getElementById('companyLogo').src = CONFIG.companyLogoUrl;
-        document.getElementById('agentImage').src = CONFIG.agentImageUrl;
-        document.getElementById('chatbotIframe').src = CONFIG.iframeUrl;
+      <div class="agent-card">
+        <!-- Replace the src below with your Copilot Studio / Copilot agent embed URL -->
+        <iframe
+          class="agent-frame"
+          src="YOUR_AGENT_IFRAME_URL_HERE"
+          title="Carrick Copilot"
+          frameborder="0"
+          loading="lazy"
+          allow="microphone"
+        ></iframe>
+      </div>
+    </section>
 
-        // Optional: Handle image loading errors
-        document.getElementById('companyLogo').onerror = function() {
-            this.style.display = 'none';
-        };
-
-        document.getElementById('agentImage').onerror = function() {
-            this.style.display = 'none';
-        };
-    </script>
+    <footer class="site-footer">
+      <img
+        src="Carrick+Stone Logo MAIN.png"
+        alt="Carrick and Stone logo"
+        class="footer-logo"
+      />
+      <p>© Carrick+Stone, Ayr</p>
+    </footer>
+  </div>
 </body>
 </html>
