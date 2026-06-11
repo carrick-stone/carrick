@@ -5,7 +5,7 @@
   --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
 }
 
-/* Reset */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -24,7 +24,7 @@ body {
 .site-header {
   display: flex;
   justify-content: center;
-  padding: 10px 0 0;
+  padding: 6px 0 0;
 }
 
 .brand-logo {
@@ -32,7 +32,7 @@ body {
   max-height: 70px;
 }
 
-/* LAYOUT */
+/* PAGE CONTAINER */
 .page-shell {
   max-width: 1200px;
   margin: 0 auto;
@@ -43,10 +43,9 @@ body {
 .hero-layout {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  align-items: start;
-  gap: 60px;
-
-  margin-top: 10px; /* ✅ moved UP significantly */
+  align-items: flex-start;
+  gap: 50px;
+  margin-top: 0; /* ✅ pulled right up */
 }
 
 /* TEXT */
@@ -68,7 +67,7 @@ body {
   color: var(--muted);
   font-size: 1.15rem;
   max-width: 600px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .secondary {
@@ -80,7 +79,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 10px; /* ✅ tighter */
+  padding-top: 10px;
 }
 
 .avatar-frame {
@@ -97,35 +96,30 @@ body {
   border-radius: 18px;
 }
 
-/* ✅ FULL WIDTH CHAT SECTION */
+/* ✅ CHAT SECTION (CRITICAL FIX) */
 .chat-section {
-  margin-top: 40px;
-  padding-bottom: 80px;
+  margin-top: 20px;   /* ✅ directly under hero */
+  width: 100%;
 }
 
 /* ✅ FULL WIDTH CHAT CONTAINER */
 .chat-full {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
 }
 
-/* ✅ CRITICAL FIX: proper scaling without breaking layout */
+/* ✅ IFRAME FIX — NO TRANSFORM / NO ZOOM */
 .chat-full iframe {
   width: 100%;
-  height: 650px;
+  height: 900px;   /* ✅ makes it visible immediately */
   border: none;
-
-  /* ✅ this enlarges text WITHOUT breaking position */
-  transform: scale(1.15);
-  transform-origin: top center;
 }
 
-/* RESPONSIVE */
+/* ✅ OPTIONAL: increase perceived text size using browser zoom effect */
+.chat-full iframe {
+  font-size: 18px;
+}
+
+/* ✅ TABLET */
 @media (max-width: 1024px) {
   .hero-layout {
     grid-template-columns: 1fr;
@@ -136,19 +130,18 @@ body {
   }
 
   .chat-full iframe {
-    transform: scale(1.1);
-    height: 550px;
+    height: 700px;
   }
 }
 
+/* ✅ MOBILE */
 @media (max-width: 640px) {
+
   .hero-copy h1 {
     font-size: clamp(3rem, 10vw, 4.5rem);
   }
 
   .chat-full iframe {
-    transform: scale(1.05);
-    height: 500px;
+    height: 650px;
   }
 }
-``
