@@ -1,42 +1,124 @@
-.hero-layout {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  align-items: center;
-  min-height: 100vh;
-  padding: 60px;
-  margin-right: 380px; /* cleaner than padding */
-  gap: 48px;
+:root {
+  --bg: #050505;
+  --bg-soft: #101010;
+  --panel: rgba(255, 255, 255, 0.04);
+  --panel-border: rgba(212, 175, 55, 0.22);
+  --text: #f5f2eb;
+  --muted: #c9c2b5;
+  --gold: #d4af37;
+  --gold-soft: #b9922f;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --chat-width: 380px;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 body {
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top center, rgba(212, 175, 55, 0.12), transparent 30%),
+    linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+  line-height: 1.6;
   overflow-x: hidden;
 }
 
-.avatar-image {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 24px;
-}  margin-bottom: 20px;
+/* General images */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Main page content wrapper */
+.page-shell {
+  min-height: 100vh;
+  margin-right: var(--chat-width);
+  padding: 24px 40px 40px;
+}
+
+/* Header / logo */
+.site-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 6px;
+  padding-bottom: 16px;
+}
+
+.brand-logo {
+  width: min(680px, 92%);
+  height: auto;
+  object-fit: contain;
+}
+
+/* Hero layout */
+.hero-layout {
+  min-height: calc(100vh - 110px);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 48px;
+}
+
+/* Hero text */
+.hero-copy {
+  max-width: 640px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.hero-copy h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  font-size: clamp(3.4rem, 7vw, 6.2rem);
+  margin-bottom: 20px;
+  color: #ffffff;
 }
 
 .lead {
   color: var(--muted);
+  font-size: 1.08rem;
+  max-width: 680px;
   margin-bottom: 28px;
 }
 
-/* ✅ CARD */
 .intro-card {
   background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
   border: 1px solid var(--panel-border);
   border-radius: var(--radius-md);
   padding: 22px 24px;
   box-shadow: var(--shadow);
+  color: #e8e0d3;
 }
 
-/* ✅ AVATAR */
+/* Hero visual */
 .hero-visual {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .avatar-frame {
@@ -51,15 +133,17 @@ body {
 
 .avatar-image {
   width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
   border-radius: 24px;
 }
 
-/* ✅ ✅ NEW: RIGHT SIDE FIXED CARRICK PANEL */
+/* Fixed right-side chat panel */
 #chat-container {
   position: fixed;
   top: 0;
   right: 0;
-  width: 380px;
+  width: var(--chat-width);
   height: 100vh;
   background: linear-gradient(180deg, #111, #0a0a0a);
   border-left: 1px solid rgba(212, 175, 55, 0.2);
@@ -67,35 +151,71 @@ body {
   z-index: 999;
 }
 
-/* ✅ iframe fills panel properly (prevents white gaps) */
 #chat-container iframe {
   display: block;
   width: 100%;
   height: 100%;
   border: none;
+  background: transparent;
 }
 
-/* ✅ REMOVE OLD AGENT BLOCKS */
-.agent-section,
-.agent-card,
-.agent-frame {
-  display: none;
-}
-
-/* ✅ RESPONSIVE FIX */
-@media (max-width: 1000px) {
+/* Responsive */
+@media (max-width: 1100px) {
+  .page-shell {
+    margin-right: 0;
+    padding: 20px 20px 32px;
+  }
 
   .hero-layout {
     grid-template-columns: 1fr;
+    gap: 28px;
     text-align: center;
-    height: auto;
-    padding: 40px 20px;
-    padding-right: 20px;
+    min-height: auto;
+  }
+
+  .hero-copy {
+    margin: 0 auto;
+  }
+
+  .lead,
+  .intro-card {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   #chat-container {
     position: relative;
     width: 100%;
     height: 420px;
+    border-left: none;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: none;
   }
 }
+
+@media (max-width: 640px) {
+  .page-shell {
+    padding: 16px 16px 28px;
+  }
+
+  .brand-logo {
+    width: 96%;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.8rem, 12vw, 4.6rem);
+  }
+
+  .intro-card {
+    padding: 18px;
+  }
+
+  .avatar-frame {
+    padding: 16px;
+  }
+
+  #chat-container {
+    height: 380px;
+  }
+}
+``
