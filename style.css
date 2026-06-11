@@ -1,66 +1,22 @@
-:root {
-  --bg: #050505;
-  --bg-soft: #101010;
-  --panel: rgba(255, 255, 255, 0.04);
-  --panel-border: rgba(212, 175, 55, 0.22);
-  --text: #f5f2eb;
-  --muted: #c9c2b5;
-  --gold: #d4af37;
-  --gold-soft: #b9922f;
-  --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
-  --radius-lg: 28px;
-  --radius-md: 18px;
-}
-
-/* ✅ RESET (fixes your spacing issue) */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-}
-
-body {
-  font-family: "Inter", sans-serif;
-  color: var(--text);
-  background:
-    radial-gradient(circle at top center, rgba(212, 175, 55, 0.12), transparent 30%),
-    linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
-  line-height: 1.6;
-}
-
-/* ✅ HERO = FULLSCREEN */
 .hero-layout {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
-  height: 100vh;                 /* full height */
+  min-height: 100vh;
   padding: 60px;
-  padding-right: 420px;          /* room for right chat panel */
+  margin-right: 380px; /* cleaner than padding */
   gap: 48px;
 }
 
-/* ✅ TEXT */
-.hero-copy {
-  max-width: 600px;
+body {
+  overflow-x: hidden;
 }
 
-.eyebrow {
-  color: var(--gold);
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  margin-bottom: 16px;
-  font-weight: 600;
-}
-
-.hero-copy h1 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(3.2rem, 7vw, 6.2rem);
-  margin-bottom: 20px;
+.avatar-image {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 24px;
+}  margin-bottom: 20px;
 }
 
 .lead {
