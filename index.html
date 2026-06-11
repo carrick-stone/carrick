@@ -5,48 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Carrick | Carrick+Stone</title>
+  <meta
+    name="description"
+    content="Carrick, the Carrick+Stone digital assistant for wines, whiskies, pairings and venue guidance."
+  />
 
-  <!-- ✅ Link your CSS file -->
-  <link rel="stylesheet" href="style.css"/>
+  <!-- Brand fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <div class="page-shell">
 
-  <!-- ✅ HERO SECTION -->
-  <main class="hero-layout">
-
-    <section class="hero-copy">
-      <p class="eyebrow">Carrick+Stone Assistant</p>
-      <h1>Carrick</h1>
-
-      <p class="lead">
-        A refined digital host for Carrick+Stone — guiding guests through wines,
-        whiskies, pairings and curated recommendations.
-      </p>
-
-      <div class="intro-card">
-        <p>
-          Ask Carrick about a bottle, a dram, a pairing — or plan your visit to Carrick+Stone.
-        </p>
-      </div>
-    </section>
-
-    <aside class="hero-visual">
+    <!-- Top logo -->
+    <header class="site-header">
       <img
-        src="Carrick-Avatar.png"
-        alt="Carrick avatar"
-        class="avatar-image"
+        src="Carrick-Stone-Logo-White.png"
+        alt="Carrick+Stone logo"
+        class="brand-logo"
       />
-    </aside>
+    </header>
 
-  </main>
+    <!-- Main hero -->
+    <main class="hero-layout">
+      <section class="hero-copy">
+        <p class="eyebrow">Carrick+Stone Assistant</p>
+        <h1>Carrick</h1>
 
-  <!-- ✅ RIGHT-SIDE FULL HEIGHT CARRICK -->
-  <div id="chat-container">
-    <iframe
-      src="https://copilotstudio.microsoft.com/environments/Default-9be50a5f-dad9-475a-89ef-8ae005ee3a8b/bots/cr3ff_Carrick/webchat?__version__=2">
-    </iframe>
+        <p class="lead">
+          A refined digital host for Carrick+Stone — guiding guests through wines,
+          whiskies, pairings and curated recommendations.
+        </p>
+
+        <div class="intro-card">
+          <p>
+            Ask Carrick about a bottle, a dram, a pairing — or plan your visit to Carrick+Stone.
+          </p>
+        </div>
+      </section>
+
+      <aside class="hero-visual">
+        <div class="avatar-frame">
+          <img
+            src="Carrick-Avatar.png"
+            alt="Carrick avatar"
+            class="avatar-image"
+          />
+        </div>
+      </aside>
+    </main>
   </div>
 
+  <!-- Fixed right-side chat panel -->
+  <div id="chat-container">
+    <iframe
+      src="https://copilotstudio.microsoft.com/environments/Default-9be50a5f-dad9-475a-89ef-8ae005ee3a8b/bots/cr3ff_Carrick/webchat?__version__=2"
+      title="Carrick chat"
+    ></iframe>
+  </div>
 </body>
 </html>
+``
