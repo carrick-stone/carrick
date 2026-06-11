@@ -1,161 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+/* ✅ RESET DEFAULT SPACING (THIS FIXES YOUR GAPS) */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #000;
+  color: #fff;
+}
 
-  <title>Carrick | Carrick+Stone</title>
-  <meta
-    name="description"
-    content="Carrick, the Carrick+Stone digital assistant for wines, whiskies, pairings and venue guidance."
-  />
+/* ✅ FULLSCREEN HERO */
+.hero-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 60px;
+  padding-right: 420px; /* prevents overlap with chat */
+}
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png" />
-  <link rel="shortcut icon" href="favicon-512x512.png" />
+/* ✅ TEXT */
+.hero-copy {
+  max-width: 600px;
+}
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  />
+.hero-copy h1 {
+  font-size: 72px;
+  margin: 0;
+}
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
-</head>
+/* ✅ IMAGE */
+.avatar-image {
+  width: 320px;
+}
 
-<!-- ✅ Floating Chat Button -->
-<div id="chat-button">  
-  <img src="Carrick-Avatar.png" alt="Carrick" class="chat-avatar" />
-</div>
+/* ✅ CHAT PANEL (RIGHT SIDE FULL HEIGHT) */
+#chat-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 380px;
+  height: 100vh;
+  background: #111;
+  z-index: 999;
+}
 
-<!-- ✅ Chat Panel -->
-<div id="chat-panel">
-  <iframe
-    src="https://copilotstudio.microsoft.com/environments/Default-9be50a5f-dad9-475a-89ef-8ae005ee3a8b/bots/cr3ff_Carrick/webchat?__version__=2"
-  ></iframe>
-</div>
-
-<script>
-  const button = document.getElementById("chat-button");
-  const panel = document.getElementById("chat-panel");
-
-  button.onclick = () => {
-    panel.classList.toggle("open");
-  };
-</script>
-  
-<body>
-  <div class="site-shell">
-
-    <!-- Header -->
-    <header class="site-header">
-      <div class="top-brand">
-        <img
-          src="Carrick-Stone-Logo-White.png"
-          alt="Carrick+Stone logo"
-          class="brand-logo"
-        />
-      </div>
-    </header>
-
-    <!-- Hero -->
-    <main class="hero-layout">
-      <section class="hero-copy">
-        <p class="eyebrow">Carrick+Stone Assistant</p>
-        <h1>Carrick</h1>
-
-        <p class="lead">
-          A refined digital host for Carrick+Stone — guiding guests through wines,
-          whiskies, pairings and curated recommendations.
-        </p>
-
-        <div class="intro-card">
-          <p>
-            Ask Carrick about a bottle, a dram, a pairing — or plan your visit to Carrick+Stone.
-          </p>
-        </div>
-      </section>
-
-      <aside class="hero-visual">
-        <div class="avatar-frame">
-          <img
-            src="Carrick-Avatar.png"
-            alt="Carrick avatar"
-            class="avatar-image"
-          />
-        </div>
-      </aside>
-    </main>
-
-    <!-- ✅ Agent Embed -->
-    <section class="agent-container" style="height: 600px; margin-top: 40px;">
-      <iframe
-          class="brand-logo"
-        />
-      </div>
-    </header>
-
-    <!-- Hero -->
-    <main class="hero-layout">
-      <section class="hero-copy">
-        <p class="eyebrow">Carrick+Stone Assistant</p>
-        <h1>Carrick</h1>
-
-        <p class="lead">
-          A refined digital host for Carrick+Stone — guiding guests through wines,
-          whiskies, pairings and curated recommendations.
-        </p>
-
-        <div class="intro-card">
-          <p>
-            Ask Carrick about a bottle, a dram, a pairing — or plan your visit to Carrick+Stone.
-          </p>
-        </div>
-      </section>
-
-      <aside class="hero-visual">
-        <div class="avatar-frame">
-          <img
-            src="Carrick-Avatar.png"
-            alt="Carrick avatar"
-            class="avatar-image"
-          />
-        </div>
-          class="brand-logo"
-        />
-      </div>
-    </header>
-
-    <!-- Hero -->
-    <main class="hero-layout">
-      <section class="hero-copy">
-        <p class="eyebrow">Carrick+Stone Assistant</p>
-        <h1>Carrick</h1>
-
-        <p class="lead">
-          A refined digital host for Carrick+Stone — guiding guests through wines,
-          whiskies, pairings and curated recommendations.
-        </p>
-
-        <div class="intro-card">
-          <p>
-            Ask Carrick about a bottle, a dram, a pairing — or plan your visit to Carrick+Stone.
-          </p>
-        </div>
-      </section>
-
-      <aside class="hero-visual">
-        <div class="avatar-frame">
-          <img
-            src="Carrick-Avatar.png"
-            alt="Carrick avatar"
-            class="avatar-image"
-          />
-        </div>
-      </aside>
-    </main>
-
-    <!-- Agent -->
+/* ✅ REMOVE IFRAME GAP */
+#chat-container iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
