@@ -20,6 +20,41 @@
 
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- ✅ Minimal safe inline styles (only for chat positioning) -->
+  <style>
+    .chat-wrapper {
+      margin-top: 40px;
+      width: 100%;
+      height: 70vh;
+      max-width: 900px;
+    }
+
+    .chat-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+
+      /* ✅ Increase chat readability */
+      transform: scale(1.25);
+      transform-origin: top left;
+      width: 80%;
+    }
+
+    /* ✅ Mobile optimisation */
+    @media (max-width: 768px) {
+      .chat-wrapper {
+        height: 75vh;
+      }
+
+      .chat-frame {
+        transform: scale(1.15);
+        width: 87%;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -34,8 +69,9 @@
       />
     </header>
 
-    <!-- Hero -->
+    <!-- ✅ Hero now includes chat -->
     <main class="hero-layout">
+
       <section class="hero-copy">
         <p class="eyebrow">Carrick+Stone Assistant</p>
         <h1>Carrick</h1>
@@ -45,13 +81,23 @@
           whiskies, pairings and curated recommendations.
         </p>
 
-        <div class="intro-card">
-          <p>
-            Ask Carrick about a bottle, a dram, a pairing — or plan your visit to Carrick+Stone.
-          </p>
+        <!-- ✅ Clean paragraph (no box) -->
+        <p class="lead" style="margin-top: 20px; opacity: 0.85;">
+          Ask Carrick about a bottle, a dram, a pairing — or plan your visit to Carrick+Stone.
+        </p>
+
+        <!-- ✅ Chat now centred and embedded -->
+        <div class="chat-wrapper">
+          <iframe
+            class="chat-frame"
+            src="https://copilotstudio.microsoft.com/environments/Default-9be50a5f-dad9-475a-89ef-8ae005ee3a8b/bots/cr3ff_Carrick/webchat?__version__=2"
+            title="Carrick chat"
+          ></iframe>
         </div>
+
       </section>
 
+      <!-- ✅ Avatar stays as visual anchor -->
       <aside class="hero-visual">
         <div class="avatar-frame">
           <img
@@ -61,16 +107,10 @@
           />
         </div>
       </aside>
+
     </main>
 
   </div>
 
-  <!-- Fixed right-side chat panel -->
-  <div id="chat-container">
-    <iframe
-      src="https://copilotstudio.microsoft.com/environments/Default-9be50a5f-dad9-475a-89ef-8ae005ee3a8b/bots/cr3ff_Carrick/webchat?__version__=2"
-      title="Carrick chat"
-    ></iframe>
-  </div>
 </body>
 </html>
